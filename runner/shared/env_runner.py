@@ -8,7 +8,7 @@ from runner.shared.base_runner import Runner
 from torch.utils.tensorboard import SummaryWriter
 from itertools import chain
 
-writer = SummaryWriter("./log/rmappo/test/")
+# writer = SummaryWriter("./log/rmappo/test/")
 
 def _t2n(x):
     return x.detach().cpu().numpy()
@@ -108,7 +108,7 @@ class EnvRunner(Runner):
                         train_infos["average_episode_rewards"]
                     )
                 )
-                writer.add_scalar("return", train_infos["average_episode_rewards"], episode)
+                # writer.add_scalar("return", train_infos["average_episode_rewards"], episode)
                 self.log_train(train_infos, total_num_steps)
                 # self.log_env(env_infos, total_num_steps)
 
