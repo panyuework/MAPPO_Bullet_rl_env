@@ -52,7 +52,10 @@ class X10Car_Env_out20(gym.Env):
             high=np.array(disthigh, dtype=np.float32))
         self.np_random, _ = gym.utils.seeding.np_random()
 
-        self.client = p.connect(p.GUI)
+        # TODO Render or No Render
+        # self.client = p.connect(p.GUI)  # Render
+        self.client = p.connect(p.DIRECT)  # No Render
+
         # Reduce length of episodes for RL algorithms
         p.setTimeStep(1/30, self.client)
         # 设置相机位置
